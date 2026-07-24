@@ -1,0 +1,2 @@
+comparison,svm_only_correct,majority_only_correct,discordant_total,exact_two_sided_mcnemar_p
+Linear SVM vs majority-class reference on GossipCop,3173,10029,13202,0.0

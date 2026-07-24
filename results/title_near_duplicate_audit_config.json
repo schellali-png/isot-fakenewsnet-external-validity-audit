@@ -1,0 +1,118 @@
+{
+  "analysis_status": "post-hoc title-level near-duplicate sensitivity",
+  "representation": {
+    "normalization": "shared lowercased alphabetic title normalization",
+    "shingles": "hashed character 5-grams with boundary spaces",
+    "hash": "MurmurHash3 32-bit, seed 17",
+    "candidate_threshold": 0.7,
+    "principal_threshold": 0.8,
+    "sensitivity_thresholds": [
+      0.7,
+      0.8,
+      0.9
+    ],
+    "verification": "exact Jaccard on hashed shingle sets"
+  },
+  "candidate_pairs_checked": 6129567,
+  "verified_pairs_at_minimum_threshold": 210,
+  "isot_principal_components": {
+    "verified_edges": 56,
+    "multi_title_groups": 47,
+    "titles_in_multi_title_groups": 99,
+    "component_size_counts": {
+      "2": 43,
+      "3": 3,
+      "4": 1
+    },
+    "mixed_label_components": 0
+  },
+  "counts": {
+    "isot": 38681,
+    "politifact": 975,
+    "gossipcop": 20587
+  },
+  "cleaning": {
+    "isot": {
+      "fake_rows_read": 23481,
+      "real_rows_read": 21417,
+      "fake_malformed_rows_repaired": 0,
+      "real_malformed_rows_repaired": 0,
+      "empty_documents_removed": 9,
+      "exact_same_label_duplicates_detected": 6208,
+      "documents_containing_reuters_before_masking": 140,
+      "rows_after_cleaning": 38681
+    },
+    "politifact": {
+      "raw_fake": 432,
+      "raw_real": 624,
+      "raw_total": 1056,
+      "empty_titles_removed": 3,
+      "same_label_duplicate_rows_removed": 74,
+      "conflicting_clean_titles": 2,
+      "conflicting_rows_removed_after_same_label_deduplication": 4,
+      "final_fake": 425,
+      "final_real": 550,
+      "final_total": 975
+    },
+    "gossipcop": {
+      "raw_fake": 5323,
+      "raw_real": 16817,
+      "raw_total": 22140,
+      "empty_titles_removed": 0,
+      "same_label_duplicate_rows_removed": 1309,
+      "conflicting_clean_titles": 122,
+      "conflicting_rows_removed_after_same_label_deduplication": 244,
+      "final_fake": 4764,
+      "final_real": 15823,
+      "final_total": 20587
+    }
+  },
+  "folds": {
+    "1": {
+      "n": 7736,
+      "fake": 3578,
+      "real": 4158,
+      "groups": 7725
+    },
+    "2": {
+      "n": 7736,
+      "fake": 3579,
+      "real": 4157,
+      "groups": 7726
+    },
+    "3": {
+      "n": 7736,
+      "fake": 3579,
+      "real": 4157,
+      "groups": 7725
+    },
+    "4": {
+      "n": 7736,
+      "fake": 3578,
+      "real": 4158,
+      "groups": 7725
+    },
+    "5": {
+      "n": 7737,
+      "fake": 3579,
+      "real": 4158,
+      "groups": 7728
+    }
+  },
+  "input_hashes": {
+    "Fake(3).csv": "bebf8bcfe95678bf2c732bf413a2ce5f621af0102c82bf08083b2e5d3c693d0c",
+    "True(3).csv": "ba0844414a65dc6ae7402b8eee5306da24b6b56488d6767135af466c7dcb2775",
+    "politifact_fake(2).csv": "abe7fe7aad801b1e2ab5fc963cbd0881d9670190262ae3df85e91c3380bd004c",
+    "politifact_real(3).csv": "2500f86a7addca0f59fe8cf089c0f802d3eca6980f53538992b3b0e9687dbae0",
+    "gossipcop_fake(2).csv": "c6932bffadb1230bc61c66bb2ca298f4ef28ce849d268313ad2eed41d18d4c99",
+    "gossipcop_real(2).csv": "d721e9a8b7e660da05c089691743c33fecb25367074e936b5fab3d85cdcbe79f"
+  },
+  "software": {
+    "python": "3.12.13 (main, Mar  3 2026, 14:59:34) [Clang 21.1.4 ]",
+    "platform": "Linux-6.12.13-x86_64-with-glibc2.39",
+    "numpy": "2.3.5",
+    "pandas": "2.2.3",
+    "scipy": "1.17.0",
+    "scikit_learn": "1.8.0"
+  }
+}
