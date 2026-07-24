@@ -1,3 +1,0 @@
-corpus,n,missing_or_unparseable_urls,valid_normalized_hostnames,hostname_categories_including_missing,hostnames_seen_in_both_labels,label_exclusive_hostnames,rows_on_label_exclusive_hostnames,share_rows_on_label_exclusive_hostnames,valid_hostnames_with_at_least_10_rows,missing_category_with_at_least_10_rows
-PolitiFact,975,58,519,520,16,503,731,0.7497435897435898,10,True
-GossipCop,20587,268,2071,2072,403,1668,4923,0.23913149074658765,260,True
