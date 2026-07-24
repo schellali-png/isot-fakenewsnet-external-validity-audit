@@ -1,0 +1,117 @@
+{
+  "protocol": {
+    "analysis_status": "held-out second external evaluation",
+    "documentation_timing": "retrospectively documented",
+    "pre_outcome_record": "No dated preregistration, OSF record, or repository commit predating the GossipCop predictions is available.",
+    "evidential_status": "secondary external evidence; not presented as prospectively frozen or confirmatory",
+    "scientific_comment": "construct validity and external validity",
+    "target_construct": "prediction of binary corpus labels from normalized title text; not claim-level factual verification",
+    "training_corpus": "exact-deduplicated ISOT titles",
+    "external_corpora": [
+      "FakeNewsNet-PolitiFact",
+      "FakeNewsNet-GossipCop"
+    ],
+    "main_reported_external_analysis": {
+      "corpus": "FakeNewsNet-GossipCop",
+      "model": "fixed title-only Linear SVM",
+      "representation": "TF-IDF word unigrams",
+      "main_reported_metric": "balanced accuracy",
+      "supporting_metrics": [
+        "accuracy",
+        "macro-F1",
+        "fake recall",
+        "real recall"
+      ]
+    },
+    "fixed_pipeline": {
+      "stop_words": "english",
+      "lowercase_after_shared_normalization": true,
+      "ngram_range": [
+        1,
+        1
+      ],
+      "min_df": 2,
+      "max_df": 0.95,
+      "max_features": 50000,
+      "sublinear_tf": true,
+      "linear_svm_C": 1.0,
+      "seed": 42
+    },
+    "additional_models": [
+      "Multinomial Naive Bayes alpha=1",
+      "Logistic Regression C=1 liblinear",
+      "Random Forest 200 trees"
+    ],
+    "reference_baseline": "always predict the external majority class; balanced accuracy is 0.5",
+    "cleaning": "shared title normalization; remove empty titles; remove exact same-label duplicates; exclude cleaned titles that retain conflicting labels",
+    "overlap_audit": "count exact cleaned-title overlap with ISOT and between the two external subsets",
+    "uncertainty": "2000 stratified bootstrap resamples preserving fake and real class sizes",
+    "implemented_workflow_separation": [
+      "no feature selection on GossipCop",
+      "no hyperparameter selection on GossipCop",
+      "no threshold selection on GossipCop",
+      "no model ranking used to redefine the main reported metric"
+    ],
+    "interpretation_limit": "The code documents operational separation from GossipCop fitting and selection, but it does not prove preregistration or pre-outcome freezing."
+  },
+  "counts": {
+    "isot_titles": 38681,
+    "politifact_titles": 975,
+    "gossipcop_titles": 20587,
+    "vocabulary_size": 12967
+  },
+  "isot_cleaning": {
+    "fake_rows_read": 23481,
+    "real_rows_read": 21417,
+    "fake_malformed_rows_repaired": 0,
+    "real_malformed_rows_repaired": 0,
+    "empty_documents_removed": 9,
+    "exact_same_label_duplicates_detected": 6208,
+    "documents_containing_reuters_before_masking": 140,
+    "rows_after_cleaning": 38681
+  },
+  "external_cleaning": {
+    "PolitiFact": {
+      "raw_fake": 432,
+      "raw_real": 624,
+      "raw_total": 1056,
+      "empty_titles_removed": 3,
+      "same_label_duplicate_rows_removed": 74,
+      "conflicting_clean_titles": 2,
+      "conflicting_rows_removed_after_same_label_deduplication": 4,
+      "final_fake": 425,
+      "final_real": 550,
+      "final_total": 975
+    },
+    "GossipCop": {
+      "raw_fake": 5323,
+      "raw_real": 16817,
+      "raw_total": 22140,
+      "empty_titles_removed": 0,
+      "same_label_duplicate_rows_removed": 1309,
+      "conflicting_clean_titles": 122,
+      "conflicting_rows_removed_after_same_label_deduplication": 244,
+      "final_fake": 4764,
+      "final_real": 15823,
+      "final_total": 20587
+    }
+  },
+  "input_hashes": {
+    "Fake(2).csv": "bebf8bcfe95678bf2c732bf413a2ce5f621af0102c82bf08083b2e5d3c693d0c",
+    "True(2).csv": "ba0844414a65dc6ae7402b8eee5306da24b6b56488d6767135af466c7dcb2775",
+    "politifact_fake.csv": "abe7fe7aad801b1e2ab5fc963cbd0881d9670190262ae3df85e91c3380bd004c",
+    "politifact_real.csv": "2500f86a7addca0f59fe8cf089c0f802d3eca6980f53538992b3b0e9687dbae0",
+    "gossipcop_fake.csv": "c6932bffadb1230bc61c66bb2ca298f4ef28ce849d268313ad2eed41d18d4c99",
+    "gossipcop_real.csv": "d721e9a8b7e660da05c089691743c33fecb25367074e936b5fab3d85cdcbe79f",
+    "second_external_evaluation_specification.json": "9ca3a0df6ce44f2ede278dcaf8bc36df96b4c6b379a3fb9130be3bc47a51b203"
+  },
+  "software": {
+    "python": "3.12.13 (main, Mar  3 2026, 14:59:34) [Clang 21.1.4 ]",
+    "platform": "Linux-6.12.13-x86_64-with-glibc2.39",
+    "numpy": "2.3.5",
+    "pandas": "2.2.3",
+    "scipy": "1.17.0",
+    "scikit_learn": "1.8.0",
+    "joblib": "1.5.3"
+  }
+}

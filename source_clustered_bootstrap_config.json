@@ -1,0 +1,23 @@
+{
+  "analysis_status": "post_hoc_sensitivity_analysis",
+  "cluster_definition": "normalized source hostname",
+  "primary_missing_hostname_policy": "all missing hostnames pooled as one cluster",
+  "secondary_missing_hostname_policy": "each missing-hostname item treated as a unique cluster",
+  "seen_definition": "the item's normalized hostname occurs in at least one fold other than the item's own five-fold diagnostic fold",
+  "resamples": 2000,
+  "seed": 6217,
+  "external_predictions": {
+    "file": "external_predictions_without_text.csv",
+    "sha256": "5102070b982d80638e6c79f7e81c85d9ae16452b0a866a5e1392e2dbaa7dae1f"
+  },
+  "hostname_predictions": {
+    "file": "source_hostname_oof_predictions_without_text.csv",
+    "sha256": "cc8a734f2deec4bb6b59ae3a0b621ec321f4af06cbcece7e27ac6dec49b3d4d1"
+  },
+  "software": {
+    "python": "3.12.13",
+    "numpy": "2.3.5",
+    "pandas": "2.2.3",
+    "scikit_learn": "1.8.0"
+  }
+}
