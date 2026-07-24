@@ -1,0 +1,31 @@
+{
+  "analysis_status": "post-hoc target-adaptation sensitivity analysis",
+  "documentation_timing": "retrospectively documented after reviewer comment",
+  "primary_result_preserved": "locked zero-threshold ISOT-to-GossipCop external evaluation",
+  "scientific_question": "Can class-prior or decision-threshold mismatch explain the near-chance GossipCop balanced accuracy?",
+  "target_construct": "prediction of supplied GossipCop binary corpus labels from ISOT-trained title scores; not claim-level truth",
+  "threshold_free_metric": {
+    "metric": "ROC-AUC",
+    "uncertainty": "2000 class-stratified bootstrap resamples preserving class sizes",
+    "seed": 1042
+  },
+  "full_sample_oracle": {
+    "objective": "maximize balanced accuracy (Youden J)",
+    "tie_break": "threshold closest to locked zero",
+    "interpretation": "descriptive in-sample upper bound only; not an external-performance estimate"
+  },
+  "disjoint_target_adaptation": {
+    "splitter": "StratifiedShuffleSplit",
+    "adaptation_fractions": [0.05, 0.10, 0.20],
+    "repeats_per_fraction": 200,
+    "base_seed": 42,
+    "threshold_objective": "maximize adaptation-subset balanced accuracy (Youden J)",
+    "threshold_tie_break": "threshold closest to locked zero",
+    "evaluation": "paired adapted and locked predictions on the identical disjoint remainder",
+    "platt_sensitivity": "near-unregularized one-dimensional logistic sigmoid fitted only on adaptation margins; evaluation threshold probability 0.5",
+    "reported_uncertainty": "mean, sample standard deviation, and 2.5th-97.5th percentiles across repeated splits",
+    "percentile_limit": "split-stability percentiles are not sampling confidence intervals"
+  },
+  "evidential_status": "exploratory post-hoc sensitivity; not preregistered, confirmatory, or an independent external test",
+  "interpretation_limit": "The analysis tests simple threshold and Platt corrections and does not rule out richer supervised domain adaptation."
+}
