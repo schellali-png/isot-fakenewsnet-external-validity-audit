@@ -1,7 +1,0 @@
-stage,outer_fold,model,model_name,ngram_max,min_df,C
-nested_outer,1.0,svm,Linear SVM,2,2,1.0
-nested_outer,2.0,svm,Linear SVM,2,2,1.0
-nested_outer,3.0,svm,Linear SVM,2,2,1.0
-nested_outer,4.0,svm,Linear SVM,2,2,1.0
-nested_outer,5.0,svm,Linear SVM,2,2,1.0
-global_group_cv,,svm,Linear SVM,2,2,1.0

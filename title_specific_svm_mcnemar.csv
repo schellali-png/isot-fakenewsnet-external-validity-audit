@@ -1,4 +1,0 @@
-scope,model,model_name,selected_only_correct,fixed_only_correct,discordant,exact_two_sided_mcnemar_p
-pooled_nested_outer,svm,Linear SVM,551,368,919,1.7123546701708164e-09
-PolitiFact,svm,Linear SVM,25,39,64,0.10342187831608088
-GossipCop,svm,Linear SVM,737,826,1563,0.02599026859494527
