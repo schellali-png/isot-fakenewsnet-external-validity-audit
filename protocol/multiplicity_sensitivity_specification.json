@@ -1,0 +1,29 @@
+{
+  "name": "Global multiplicity sensitivity audit for exact paired tests",
+  "version": "Revision 12",
+  "status": "post-hoc reviewer-motivated conservative sensitivity analysis",
+  "alpha": 0.05,
+  "global_family": {
+    "size": 19,
+    "definition": "All unique exact two-sided McNemar contrasts reported in the manuscript or associated Revision-11 results, with duplicated SVM tuning contrasts counted once.",
+    "components": {
+      "original_model_source_temporal_diagnostics": 6,
+      "equalized_isot_nested": 4,
+      "equalized_politifact": 4,
+      "equalized_gossipcop": 4,
+      "gossipcop_fixed_svm_vs_majority": 1
+    }
+  },
+  "procedures": {
+    "holm": "Step-down adjustment controlling the family-wise error rate over all 19 tests.",
+    "benjamini_hochberg": "Step-up adjustment controlling the false discovery rate over all 19 tests."
+  },
+  "decision_rule": "Adjusted p <= 0.05",
+  "confidence_interval_policy": "Wilson and bootstrap intervals are marginal effect-size uncertainty summaries. They are not claimed to provide simultaneous 95% coverage across the full collection of outcomes.",
+  "interpretation_limits": [
+    "The global family was assembled after peer-review feedback and was not preregistered.",
+    "The adjustment is a sensitivity audit and does not convert exploratory or post-selection comparisons into confirmatory tests.",
+    "Holm is treated as the conservative primary correction; Benjamini-Hochberg is a supporting FDR analysis.",
+    "Statistical significance is interpreted together with absolute effect size and the corpus-label estimand."
+  ]
+}
