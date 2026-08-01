@@ -1,0 +1,4 @@
+first_corpus,second_corpus,exact_cleaned_title_overlap,first_unique_titles,second_unique_titles
+ISOT,PolitiFact,0,38681,975
+ISOT,GossipCop,0,38681,20587
+PolitiFact,GossipCop,2,975,20587

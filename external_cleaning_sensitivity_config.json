@@ -1,0 +1,74 @@
+{
+  "analysis_status": "post_hoc_sensitivity_analysis",
+  "purpose": "evaluate whether exclusion of same-label exact duplicates and conflicting cleaned titles materially changes fixed external SVM performance",
+  "training": {
+    "corpus": "exact-deduplicated ISOT titles",
+    "n": 38681,
+    "cleaning": {
+      "fake_rows_read": 23481,
+      "real_rows_read": 21417,
+      "fake_malformed_rows_repaired": 0,
+      "real_malformed_rows_repaired": 0,
+      "empty_documents_removed": 9,
+      "exact_same_label_duplicates_detected": 6208,
+      "documents_containing_reuters_before_masking": 140,
+      "rows_after_cleaning": 38681
+    }
+  },
+  "model": {
+    "representation": "TF-IDF word unigrams",
+    "max_features": 50000,
+    "min_df": 2,
+    "max_df": 0.95,
+    "sublinear_tf": true,
+    "linear_svm_C": 1.0,
+    "seed": 42,
+    "external_fitting_or_selection": false
+  },
+  "populations": [
+    "nonempty_all_rows",
+    "same_label_deduplicated_conflicts_retained",
+    "main_unique_nonconflicting"
+  ],
+  "counts": {
+    "PolitiFact": {
+      "raw_rows": 1056,
+      "empty_rows": 3,
+      "nonempty_all_rows": 1053,
+      "same_label_duplicate_rows": 74,
+      "same_label_deduplicated_conflicts_retained": 979,
+      "conflicting_clean_titles": 2,
+      "conflicting_rows_after_same_label_deduplication": 4,
+      "main_unique_nonconflicting": 975
+    },
+    "GossipCop": {
+      "raw_rows": 22140,
+      "empty_rows": 0,
+      "nonempty_all_rows": 22140,
+      "same_label_duplicate_rows": 1309,
+      "same_label_deduplicated_conflicts_retained": 20831,
+      "conflicting_clean_titles": 122,
+      "conflicting_rows_after_same_label_deduplication": 244,
+      "main_unique_nonconflicting": 20587
+    }
+  },
+  "bootstrap": {
+    "method": "class-stratified item bootstrap",
+    "resamples": 2000,
+    "seed": 923
+  },
+  "input_hashes": {
+    "Fake(3).csv": "bebf8bcfe95678bf2c732bf413a2ce5f621af0102c82bf08083b2e5d3c693d0c",
+    "True(3).csv": "ba0844414a65dc6ae7402b8eee5306da24b6b56488d6767135af466c7dcb2775",
+    "politifact_fake(2).csv": "abe7fe7aad801b1e2ab5fc963cbd0881d9670190262ae3df85e91c3380bd004c",
+    "politifact_real(3).csv": "2500f86a7addca0f59fe8cf089c0f802d3eca6980f53538992b3b0e9687dbae0",
+    "gossipcop_fake(2).csv": "c6932bffadb1230bc61c66bb2ca298f4ef28ce849d268313ad2eed41d18d4c99",
+    "gossipcop_real(2).csv": "d721e9a8b7e660da05c089691743c33fecb25367074e936b5fab3d85cdcbe79f"
+  },
+  "software": {
+    "python": "3.12.13",
+    "numpy": "2.3.5",
+    "pandas": "2.2.3",
+    "scikit_learn": "1.8.0"
+  }
+}
