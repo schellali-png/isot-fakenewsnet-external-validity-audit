@@ -1,0 +1,463 @@
+{
+  "analysis_status": "post-hoc reviewer-motivated source/style title-cue audit",
+  "model": "fixed title-only TF-IDF + Linear SVM",
+  "conditions": [
+    "baseline locked model on original external titles",
+    "locked model after external publisher-name masking",
+    "locked model after external style-phrase masking",
+    "locked model after combined external masking",
+    "symmetric combined masking followed by ISOT refit"
+  ],
+  "publisher_lexicon_policy": {
+    "minimum_unlabeled_hostname_frequency": 10,
+    "ambiguous_single_word_aliases_excluded": [
+      "people",
+      "time",
+      "today",
+      "medium",
+      "deadline",
+      "variety"
+    ],
+    "labels_used_to_select_aliases": false
+  },
+  "style_patterns": {
+    "according_to": "\\baccording to\\b",
+    "reportedly": "\\breportedly\\b",
+    "report_or_reports": "\\breports?\\b",
+    "sources_say": "\\bsources? (?:say|said|claim|claimed)\\b",
+    "insider_says": "\\binsiders? (?:say|said|claim|claimed)\\b",
+    "exclusive": "\\bexclusive\\b",
+    "breaking": "\\bbreaking\\b",
+    "claim_or_claims": "\\bclaims?\\b",
+    "allegedly": "\\ballegedly\\b",
+    "rumor_or_rumour": "\\brumou?rs?\\b",
+    "fact_check": "\\bfact check\\b"
+  },
+  "bootstrap": {
+    "resamples": 2000,
+    "seed": 5213,
+    "method": "paired class-stratified percentile",
+    "interval_status": "marginal descriptive 95% intervals; no simultaneous coverage claim"
+  },
+  "counts": {
+    "isot": {
+      "fake_rows_read": 23481,
+      "real_rows_read": 21417,
+      "fake_malformed_rows_repaired": 0,
+      "real_malformed_rows_repaired": 0,
+      "empty_documents_removed": 9,
+      "exact_same_label_duplicates_detected": 6208,
+      "documents_containing_reuters_before_masking": 140,
+      "rows_after_cleaning": 38681
+    },
+    "PolitiFact": {
+      "raw_fake": 432,
+      "raw_real": 624,
+      "raw_total": 1056,
+      "empty_titles_removed": 3,
+      "same_label_duplicate_rows_removed": 74,
+      "conflicting_clean_titles": 2,
+      "conflicting_rows_removed_after_same_label_deduplication": 4,
+      "final_fake": 425,
+      "final_real": 550,
+      "final_total": 975
+    },
+    "GossipCop": {
+      "raw_fake": 5323,
+      "raw_real": 16817,
+      "raw_total": 22140,
+      "empty_titles_removed": 0,
+      "same_label_duplicate_rows_removed": 1309,
+      "conflicting_clean_titles": 122,
+      "conflicting_rows_removed_after_same_label_deduplication": 244,
+      "final_fake": 4764,
+      "final_real": 15823,
+      "final_total": 20587
+    }
+  },
+  "corpora": {
+    "PolitiFact": {
+      "eligible_brand_count": 8,
+      "eligible_brands": {
+        "youtube": {
+          "domains": [
+            "youtube.com"
+          ],
+          "aliases": [
+            "youtube"
+          ]
+        },
+        "politifact": {
+          "domains": [
+            "politifact.com"
+          ],
+          "aliases": [
+            "politifact"
+          ]
+        },
+        "abc_news": {
+          "domains": [
+            "abcnews.go.com"
+          ],
+          "aliases": [
+            "abc news"
+          ]
+        },
+        "new_york_times": {
+          "domains": [
+            "nytimes.com"
+          ],
+          "aliases": [
+            "new york times",
+            "ny times"
+          ]
+        },
+        "washington_post": {
+          "domains": [
+            "washingtonpost.com"
+          ],
+          "aliases": [
+            "washington post"
+          ]
+        },
+        "your_news_wire": {
+          "domains": [
+            "yournewswire.com"
+          ],
+          "aliases": [
+            "your news wire",
+            "yournewswire"
+          ]
+        },
+        "fox_news": {
+          "domains": [
+            "foxnews.com"
+          ],
+          "aliases": [
+            "fox news"
+          ]
+        },
+        "cnn": {
+          "domains": [
+            "cnn.com"
+          ],
+          "aliases": [
+            "cnn"
+          ]
+        }
+      },
+      "publisher_titles_changed": 26,
+      "style_titles_changed": 90,
+      "combined_titles_changed": 115,
+      "empty_after_combined_mask": 1
+    },
+    "GossipCop": {
+      "eligible_brand_count": 34,
+      "eligible_brands": {
+        "abc_news": {
+          "domains": [
+            "abcnews.go.com"
+          ],
+          "aliases": [
+            "abc news"
+          ]
+        },
+        "new_york_times": {
+          "domains": [
+            "nytimes.com"
+          ],
+          "aliases": [
+            "new york times",
+            "ny times"
+          ]
+        },
+        "washington_post": {
+          "domains": [
+            "washingtonpost.com"
+          ],
+          "aliases": [
+            "washington post"
+          ]
+        },
+        "your_news_wire": {
+          "domains": [
+            "yournewswire.com"
+          ],
+          "aliases": [
+            "your news wire",
+            "yournewswire"
+          ]
+        },
+        "fox_news": {
+          "domains": [
+            "foxnews.com"
+          ],
+          "aliases": [
+            "fox news"
+          ]
+        },
+        "cnn": {
+          "domains": [
+            "cnn.com",
+            "money.cnn.com"
+          ],
+          "aliases": [
+            "cnn"
+          ]
+        },
+        "cbs_news": {
+          "domains": [
+            "cbsnews.com"
+          ],
+          "aliases": [
+            "cbs news"
+          ]
+        },
+        "nbc_news": {
+          "domains": [
+            "nbcnews.com"
+          ],
+          "aliases": [
+            "nbc news"
+          ]
+        },
+        "usa_today": {
+          "domains": [
+            "usatoday.com",
+            "ftw.usatoday.com"
+          ],
+          "aliases": [
+            "usa today"
+          ]
+        },
+        "daily_mail": {
+          "domains": [
+            "dailymail.co.uk"
+          ],
+          "aliases": [
+            "daily mail"
+          ]
+        },
+        "us_weekly": {
+          "domains": [
+            "usmagazine.com"
+          ],
+          "aliases": [
+            "us weekly",
+            "us magazine"
+          ]
+        },
+        "entertainment_tonight": {
+          "domains": [
+            "etonline.com"
+          ],
+          "aliases": [
+            "entertainment tonight",
+            "et online"
+          ]
+        },
+        "long_room": {
+          "domains": [
+            "longroom.com"
+          ],
+          "aliases": [
+            "long room"
+          ]
+        },
+        "wikipedia": {
+          "domains": [
+            "en.wikipedia.org"
+          ],
+          "aliases": [
+            "wikipedia"
+          ]
+        },
+        "hollywood_life": {
+          "domains": [
+            "hollywoodlife.com"
+          ],
+          "aliases": [
+            "hollywood life"
+          ]
+        },
+        "hollywood_reporter": {
+          "domains": [
+            "hollywoodreporter.com"
+          ],
+          "aliases": [
+            "hollywood reporter"
+          ]
+        },
+        "entertainment_weekly": {
+          "domains": [
+            "ew.com"
+          ],
+          "aliases": [
+            "entertainment weekly"
+          ]
+        },
+        "msn": {
+          "domains": [
+            "msn.com"
+          ],
+          "aliases": [
+            "msn"
+          ]
+        },
+        "radar_online": {
+          "domains": [
+            "radaronline.com"
+          ],
+          "aliases": [
+            "radar online"
+          ]
+        },
+        "billboard": {
+          "domains": [
+            "billboard.com"
+          ],
+          "aliases": [
+            "billboard"
+          ]
+        },
+        "the_wrap": {
+          "domains": [
+            "thewrap.com"
+          ],
+          "aliases": [
+            "the wrap"
+          ]
+        },
+        "inquisitr": {
+          "domains": [
+            "inquisitr.com"
+          ],
+          "aliases": [
+            "inquisitr"
+          ]
+        },
+        "harpers_bazaar": {
+          "domains": [
+            "harpersbazaar.com"
+          ],
+          "aliases": [
+            "harper s bazaar",
+            "harpers bazaar"
+          ]
+        },
+        "bravo_tv": {
+          "domains": [
+            "bravotv.com"
+          ],
+          "aliases": [
+            "bravo tv"
+          ]
+        },
+        "celebrity_insider": {
+          "domains": [
+            "celebrityinsider.org"
+          ],
+          "aliases": [
+            "celebrity insider"
+          ]
+        },
+        "imdb": {
+          "domains": [
+            "imdb.com"
+          ],
+          "aliases": [
+            "imdb"
+          ]
+        },
+        "cosmopolitan": {
+          "domains": [
+            "cosmopolitan.com"
+          ],
+          "aliases": [
+            "cosmopolitan"
+          ]
+        },
+        "vanity_fair": {
+          "domains": [
+            "vanityfair.com"
+          ],
+          "aliases": [
+            "vanity fair"
+          ]
+        },
+        "e_news": {
+          "domains": [
+            "eonline.com"
+          ],
+          "aliases": [
+            "e news",
+            "e online"
+          ]
+        },
+        "page_six": {
+          "domains": [
+            "pagesix.com"
+          ],
+          "aliases": [
+            "page six"
+          ]
+        },
+        "instyle": {
+          "domains": [
+            "instyle.com"
+          ],
+          "aliases": [
+            "instyle",
+            "in style"
+          ]
+        },
+        "refinery29": {
+          "domains": [
+            "refinery29.com"
+          ],
+          "aliases": [
+            "refinery 29",
+            "refinery29"
+          ]
+        },
+        "new_idea": {
+          "domains": [
+            "newidea.com.au"
+          ],
+          "aliases": [
+            "new idea"
+          ]
+        },
+        "huffington_post": {
+          "domains": [
+            "huffingtonpost.com"
+          ],
+          "aliases": [
+            "huffington post",
+            "huffpost"
+          ]
+        }
+      },
+      "publisher_titles_changed": 200,
+      "style_titles_changed": 1263,
+      "combined_titles_changed": 1450,
+      "empty_after_combined_mask": 3
+    }
+  },
+  "input_hashes": {
+    "Fake(3).csv": "bebf8bcfe95678bf2c732bf413a2ce5f621af0102c82bf08083b2e5d3c693d0c",
+    "True(3).csv": "ba0844414a65dc6ae7402b8eee5306da24b6b56488d6767135af466c7dcb2775",
+    "politifact_fake(2).csv": "abe7fe7aad801b1e2ab5fc963cbd0881d9670190262ae3df85e91c3380bd004c",
+    "politifact_real(3).csv": "2500f86a7addca0f59fe8cf089c0f802d3eca6980f53538992b3b0e9687dbae0",
+    "gossipcop_fake(2).csv": "c6932bffadb1230bc61c66bb2ca298f4ef28ce849d268313ad2eed41d18d4c99",
+    "gossipcop_real(2).csv": "d721e9a8b7e660da05c089691743c33fecb25367074e936b5fab3d85cdcbe79f"
+  },
+  "software": {
+    "python": "3.12.13 (main, Mar  3 2026, 14:59:34) [Clang 21.1.4 ]",
+    "platform": "Linux-6.12.13-x86_64-with-glibc2.39",
+    "numpy": "2.3.5",
+    "pandas": "2.2.3",
+    "scipy": "1.17.0",
+    "scikit_learn": "1.8.0"
+  }
+}

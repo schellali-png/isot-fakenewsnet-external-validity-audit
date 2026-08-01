@@ -1,0 +1,23 @@
+{
+  "threshold": 0.8,
+  "candidate_pairs": 273,
+  "verified_edges": 103,
+  "multi_document_groups": 88,
+  "documents_in_multi_document_groups": 185,
+  "component_size_counts": {
+    "2": 80,
+    "3": 7,
+    "4": 1
+  },
+  "mixed_label_components": 1,
+  "combined_rows": 38826,
+  "title_rows": 38681,
+  "fold_construction_population": "combined-text C1; title rows inherit folds",
+  "fold_counts": {
+    "1": 7738,
+    "2": 7730,
+    "3": 7739,
+    "4": 7735,
+    "5": 7739
+  }
+}
