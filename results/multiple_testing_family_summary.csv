@@ -1,7 +1,0 @@
-family,tests,nominal_p_le_0_05,holm_p_le_0_05,bh_fdr_p_le_0_05
-Original diagnostics,6,5,5,5
-Equalized ISOT nested,4,3,3,3
-Equalized PolitiFact,4,0,0,0
-Equalized GossipCop,4,3,2,3
-GossipCop majority comparison,1,1,1,1
-All tests,19,12,11,12

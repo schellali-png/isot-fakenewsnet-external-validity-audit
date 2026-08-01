@@ -1,4 +1,0 @@
-comparison,model,metric,observed_difference,bootstrap_resamples,bootstrap_95_low,bootstrap_95_high
-GossipCop minus PolitiFact,linear_svm,accuracy,-0.24033130192939783,2000,-0.2706446873991926,-0.20923486815802356
-GossipCop minus PolitiFact,linear_svm,balanced_accuracy,-0.16667436678630154,2000,-0.1966319583049427,-0.13575534093781966
-GossipCop minus PolitiFact,linear_svm,macro_f1,-0.24925906213763632,2000,-0.27897947984064453,-0.21811586233346453

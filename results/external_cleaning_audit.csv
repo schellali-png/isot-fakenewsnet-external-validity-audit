@@ -1,3 +1,0 @@
-corpus,raw_fake,raw_real,raw_total,empty_titles_removed,same_label_duplicate_rows_removed,conflicting_clean_titles,conflicting_rows_removed_after_same_label_deduplication,final_fake,final_real,final_total
-PolitiFact,432,624,1056,3,74,2,4,425,550,975
-GossipCop,5323,16817,22140,0,1309,122,244,4764,15823,20587
