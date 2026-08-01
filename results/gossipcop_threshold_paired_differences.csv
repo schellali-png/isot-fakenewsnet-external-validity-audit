@@ -1,0 +1,10 @@
+adaptation_fraction,comparison,metric,repeats,mean_paired_difference,sd_paired_difference,paired_difference_split_p2_5,paired_difference_split_p97_5
+0.05,adaptation balanced-accuracy threshold minus locked zero,accuracy,200,0.01204110849780141,0.09495412242333613,-0.17795914715206054,0.20117343286634629
+0.05,adaptation balanced-accuracy threshold minus locked zero,balanced_accuracy,200,-0.005802076501048763,0.006526242354921466,-0.022722519547046086,0.002386021913010611
+0.05,adaptation balanced-accuracy threshold minus locked zero,macro_f1,200,-0.008759719963418601,0.06747450869435395,-0.19340207503537918,0.0697656733438604
+0.1,adaptation balanced-accuracy threshold minus locked zero,accuracy,200,0.01600113335851908,0.07201356250507801,-0.10729532084839977,0.16524906902693084
+0.1,adaptation balanced-accuracy threshold minus locked zero,balanced_accuracy,200,-0.003668632411331797,0.005771199004184688,-0.019312588151380185,0.0024485132810378478
+0.1,adaptation balanced-accuracy threshold minus locked zero,macro_f1,200,0.0012899415904735142,0.04575043794175188,-0.10042882199327949,0.06705166545838688
+0.2,adaptation balanced-accuracy threshold minus locked zero,accuracy,200,0.008215846994535519,0.04118104518188947,-0.09573315118397087,0.07473284760170004
+0.2,adaptation balanced-accuracy threshold minus locked zero,balanced_accuracy,200,-0.001015345886650856,0.0038462018325133647,-0.009732134304908413,0.0027664201620410224
+0.2,adaptation balanced-accuracy threshold minus locked zero,macro_f1,200,0.002931974527756127,0.033735788846820866,-0.08782731252445554,0.043023907918388817
